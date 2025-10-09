@@ -99,7 +99,7 @@ void loop() {
 
 void moveForward() {  // All motors rotate backwards
   for (int i = 0; i < sizeof(Motors) / sizeof(Motors[0]); i++) {
-    analogWrite(Motors[i].ENPin, avSpeed);
+    analogWrite(Motors[i].ENPin, maxSpeed);
     digitalWrite(Motors[i].INPin1, HIGH);
     digitalWrite(Motors[i].INPin2, LOW);
   }
@@ -108,7 +108,7 @@ void moveForward() {  // All motors rotate backwards
 
 void moveBackward() {  // All motors rotate backwards
   for (int i = 0; i < sizeof(Motors) / sizeof(Motors[0]); i++) {
-    analogWrite(Motors[i].ENPin, avSpeed);
+    analogWrite(Motors[i].ENPin, maxSpeed);
     digitalWrite(Motors[i].INPin1, LOW);
     digitalWrite(Motors[i].INPin2, HIGH);
   }
@@ -117,7 +117,7 @@ void moveBackward() {  // All motors rotate backwards
 
 void turnRight() {  // Left motors rotate forward and Right motors rotate backwards
   for (int i = 0; i < sizeof(Motors) / sizeof(Motors[0]); i++) {
-    analogWrite(Motors[i].ENPin, avSpeed);
+    analogWrite(Motors[i].ENPin, maxSpeed);
   }
 
   digitalWrite(Motors[0].INPin1, LOW);
@@ -136,8 +136,8 @@ void turnRight() {  // Left motors rotate forward and Right motors rotate backwa
 
 void forwardRight() {  // Left motors rotate forward and Right motors stop
   analogWrite(Motors[0].ENPin, 0);
-  analogWrite(Motors[1].ENPin, 255);
-  analogWrite(Motors[2].ENPin, 255);
+  analogWrite(Motors[1].ENPin, maxSpeed);
+  analogWrite(Motors[2].ENPin, maxSpeed);
   analogWrite(Motors[3].ENPin, 0);
 
   digitalWrite(Motors[1].INPin1, HIGH);  // Motor 1
@@ -150,8 +150,8 @@ void forwardRight() {  // Left motors rotate forward and Right motors stop
 
 void backwardRight() {  // Left motors rotate backwards and Right motors stop
   analogWrite(Motors[0].ENPin, 0);
-  analogWrite(Motors[1].ENPin, 255);
-  analogWrite(Motors[2].ENPin, 255);
+  analogWrite(Motors[1].ENPin, maxSpeed);
+  analogWrite(Motors[2].ENPin, maxSpeed);
   analogWrite(Motors[3].ENPin, 0);
 
   digitalWrite(Motors[1].INPin1, LOW);  // Motor 1
@@ -164,7 +164,7 @@ void backwardRight() {  // Left motors rotate backwards and Right motors stop
 
 void turnLeft() {  // Left motors rotate backwards and Right motors rotate forward
   for (int i = 0; i < sizeof(Motors) / sizeof(Motors[0]); i++) {
-    analogWrite(Motors[i].ENPin, avSpeed);
+    analogWrite(Motors[i].ENPin, maxSpeed);
   }
 
   digitalWrite(Motors[0].INPin1, HIGH);
@@ -181,10 +181,10 @@ void turnLeft() {  // Left motors rotate backwards and Right motors rotate forwa
 }  // EOF
 
 void forwardLeft() {  // Left motors stop and Right motors rotate forward
-  analogWrite(Motors[0].ENPin, 255);
+  analogWrite(Motors[0].ENPin, maxSpeed);
   analogWrite(Motors[1].ENPin, 0);
   analogWrite(Motors[2].ENPin, 0);
-  analogWrite(Motors[3].ENPin, 255);
+  analogWrite(Motors[3].ENPin, maxSpeed);
 
   digitalWrite(Motors[0].INPin1, HIGH);  // Motor 1
   digitalWrite(Motors[0].INPin2, LOW);
@@ -195,10 +195,10 @@ void forwardLeft() {  // Left motors stop and Right motors rotate forward
 
 
 void backwardLeft() {  // Left motors stop and Right motors rotate backward
-  analogWrite(Motors[0].ENPin, 255);
+  analogWrite(Motors[0].ENPin, maxSpeed);
   analogWrite(Motors[1].ENPin, 0);
   analogWrite(Motors[2].ENPin, 0);
-  analogWrite(Motors[3].ENPin, 255);
+  analogWrite(Motors[3].ENPin, maxSpeed);
 
   digitalWrite(Motors[1].INPin1, LOW);  // Motor 1
   digitalWrite(Motors[1].INPin2, HIGH);
