@@ -3,14 +3,14 @@
 This project is a simple Bluetooth-controlled robot car built with components I had lying around.
 The goal was to control a basic 4-motor robot using my phone’s Bluetooth, and later, extend it with an ESP32-based joystick controller (so my phone can rest 😅).
 
-🧠 Overview
+ Overview
 
 The car is driven by 4 L293D motor driver ICs, controlled directly by the Arduino Uno.
 Communication happens over Bluetooth using an HC-05 module paired with a mobile app interface that sends directional commands.
 
 Each command (located under the switch statement located in the code) maps to forward, backward, left, and right motion, while another button controls a passive buzzer for horn sound.
 
-⚙️ Hardware Used
+ Hardware Used
 
 Arduino Uno (Main controller)
 
@@ -53,7 +53,7 @@ A switch statement handles direction and buzzer logic.
 
 The buzzer is only active when pressed (passive tone controlled via tone() and noTone()).
 
-🚀 Next Steps
+ Next Steps
 
 Replace phone control with ESP32 joystick control (Bluetooth master–slave setup).
 
